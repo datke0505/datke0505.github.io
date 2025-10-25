@@ -1,0 +1,89 @@
+<section class="hero-section posts-hero fade-in">
+  <div class="hero-container">
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-icon"></span>
+        <span class="badge-text">Kho bài viết học lập trình</span>
+      </div>
+      
+      <h1 class="hero-title">
+        <span class="hero-title-main">Bài Viết & Hướng Dẫn</span>
+        <span class="hero-title-sub">Java · JavaScript </span>
+      </h1>
+      
+      <p class="hero-description">
+        Tại đây bạn sẽ tìm thấy hơn <strong>Với 9 Bài Viết Bổ Ích</strong> bài viết chi tiết, dễ hiểu và có ví dụ thực hành.  
+        Cùng học <strong>Java</strong>, <strong>JavaScript</strong> và công nghệ web hiện đại mỗi ngày.
+      </p>
+
+      <!-- Hero Buttons -->
+      <div class="hero-actions">
+        <a href="#posts" class="hero-btn hero-btn-primary">
+          <span>Xem bài viết mới nhất</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="/categories" class="hero-btn hero-btn-secondary">
+          <span>Xem theo chủ đề</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Visual -->
+    <div class="hero-visual">
+      <div class="hero-image-container">
+        <div class="code-window">
+          <div class="code-window-header">
+            <span class="code-dot code-dot-red"></span>
+            <span class="code-dot code-dot-yellow"></span>
+            <span class="code-dot code-dot-green"></span>
+          </div>
+          <div class="code-window-body">
+            <pre class="code-snippet"><code><span class="code-comment">// Ví dụ minh họa</span>
+<span class="code-keyword">function</span> greet(name) {
+  <span class="code-keyword">return</span> `Xin chào, ${name}! 👋`;
+}
+
+console.log(greet(<span class="code-string">'Lập Trình Viên'</span>));</code></pre>
+          </div>
+        </div>
+        <div class="floating-icon floating-icon-1"></div>
+        <div class="floating-icon floating-icon-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Box -->
+  <div class="hero-search">
+    <div class="search-box-hero">
+      <svg class="search-icon-hero" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input 
+        type="text" 
+        id="baiviet-search-input" 
+        class="search-input-hero" 
+        placeholder=" Tìm kiếm bài viết về Java, JavaScript, React...">
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("baiviet-search-input");
+  const posts = document.querySelectorAll(".post-card");
+
+  if (searchInput && posts.length) {
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      posts.forEach(post => {
+        const text = post.textContent.toLowerCase();
+        post.style.display = text.includes(query) ? "block" : "none";
+      });
+    });
+  }
+});
+</script>

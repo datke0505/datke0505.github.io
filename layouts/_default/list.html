@@ -1,0 +1,120 @@
+{{ define "main" }}
+
+<section class="container mt-4">
+  <h1 class="text-center mb-4">{{ .Title }}</h1>
+  {{ partial "baiviet.html" . }}
+  <div class="posts-grid">
+    
+    {{ range $index, $post := .Pages }}
+    <article class="post-card">
+      {{ if $post.Params.image }}
+        <!-- Nếu bài viết có ảnh -->
+        <img src="{{ $post.Params.image | relURL }}" alt="{{ $post.Title }}" class="post-image">
+      {{ else }}
+        <!-- Nếu không có ảnh, random placeholder dựa trên tag -->
+        {{ $placeholderImage := "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80" }}
+        
+        {{ with $post.Params.tags }}
+          {{ if in . "java" }}
+            <!-- RANDOM 10 ẢNH VỀ JAVA/LAPTOP/CODING -->
+            {{ $javaImages := slice 
+               "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80"
+               "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80"
+               "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=800&q=80"
+               "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
+               "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80"
+               "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&q=80"
+               "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&q=80"
+               "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"
+               "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&q=80"
+               "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&q=80"
+            }}
+            {{ $randomIndex := mod $index (len $javaImages) }}
+            {{ $placeholderImage = index $javaImages $randomIndex }}
+            
+          {{ else if in . "javascript" }}
+            <!-- RANDOM ẢNH JAVASCRIPT -->
+            {{ $jsImages := slice 
+               "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&q=80"
+               "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&q=80"
+               "https://images.unsplash.com/photo-1619410283995-43d9134e7656?w=800&q=80"
+               "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=800&q=80"
+               "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?w=800&q=80"
+               "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&q=80"
+               "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=800&q=80"
+            }}
+            {{ $randomIndex := mod $index (len $jsImages) }}
+            {{ $placeholderImage = index $jsImages $randomIndex }}
+            
+          {{ else if in . "react" }}
+            {{ $placeholderImage = "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80" }}
+          {{ else if in . "nodejs" }}
+            {{ $placeholderImage = "https://images.unsplash.com/photo-1618477388954-7852f32655ec?w=800&q=80" }}
+          {{ else if in . "python" }}
+            {{ $placeholderImage = "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=800&q=80" }}
+          {{ else }}
+            <!-- RANDOM ẢNH CODING CHUNG -->
+            {{ $codingImages := slice 
+               "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&q=80"
+               "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
+               "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80"
+               "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80"
+            }}
+            {{ $randomIndex := mod $index (len $codingImages) }}
+            {{ $placeholderImage = index $codingImages $randomIndex }}
+          {{ end }}
+        {{ end }}
+        
+        <img src="{{ $placeholderImage }}" 
+             alt="{{ $post.Title }}" 
+             class="post-image"
+             onerror="this.src='https://via.placeholder.com/800x800/2d2d2d/ff6b35?text=Blog+Post'">
+      {{ end }}
+      
+      <div class="post-content">
+        <div class="post-meta">
+          <span>📅 {{ $post.Date.Format "02/01/2006" }}</span>
+          {{ with $post.Params.tags }}
+          <span class="post-tag">{{ index . 0 }}</span>
+          {{ end }}
+        </div>
+
+        <h3 class="post-title">
+          <a href="{{ $post.Permalink }}">{{ $post.Title }}</a>
+        </h3>
+
+        <p class="post-excerpt">
+          {{ if $post.Description }}
+            {{ $post.Description }}
+          {{ else }}
+            {{ $post.Summary | truncate 130 }}
+          {{ end }}
+        </p>
+
+        <a href="{{ $post.Permalink }}" class="read-more">Đọc tiếp →</a>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+
+  <!-- Pagination -->
+  {{ if gt .Paginator.TotalPages 1 }}
+  <div class="pagination">
+    {{ if .Paginator.HasPrev }}
+    <a href="{{ .Paginator.Prev.URL }}" class="page-link">← Trước</a>
+    {{ end }}
+
+    {{ range .Paginator.Pagers }}
+    <a href="{{ .URL }}" class="page-link {{ if eq . $.Paginator }}active{{ end }}">
+      {{ .PageNumber }}
+    </a>
+    {{ end }}
+
+    {{ if .Paginator.HasNext }}
+    <a href="{{ .Paginator.Next.URL }}" class="page-link">Sau →</a>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>
+
+{{ end }}

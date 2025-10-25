@@ -1,0 +1,238 @@
+{{ define "main" }}
+
+<article class="post-single fade-in">
+  {{ if eq .Type "page" }}
+  
+  <!-- About Page - CV Layout -->
+  <div class="cv-container">
+    <!-- Left Column -->
+    <div class="cv-left">
+      <!-- Profile Section -->
+      <div class="cv-profile">
+        <h1 class="cv-name">LÊ DOÃN ĐẠT</h1>
+        <p class="cv-title">LẬP TRÌNH VIÊN</p>
+        <div class="cv-avatar">
+          <img src="/images/avatar.jpg" alt="Lê Doãn Đạt" class="cv-avatar-img">
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="cv-section">
+        <h2 class="cv-section-title">
+          <span class="cv-icon"></span>
+          LIÊN HỆ
+        </h2>
+        <div class="cv-contact">
+          <p><span class="contact-icon"></span> +84 705 484 989 </p>
+          <p><span class="contact-icon"></span> ledoandat100804@gmail.com</p>
+          <p><span class="contact-icon"></span> Hồ Chí Minh, Việt Nam</p>
+          <p><span class="contact-icon"></span> <a href="https://github.com/datke0505" target="_blank" rel="noopener">github.com/datke0505</a></p>
+          <p><span class="contact-icon"></span> <a href="https://www.facebook.com/dat.ke.547/" target="_blank" rel="noopener">facebook.com/dat.ke.547</a></p>
+        </div>
+      </div>
+
+      <!-- Education Section -->
+      <div class="cv-section">
+        <h2 class="cv-section-title">
+          <span class="cv-icon"></span>
+          HỌC VẤN
+        </h2>
+        <div class="cv-education">
+          <div class="cv-item">
+            <h3>ĐẠI HỌC CÔNG NGHỆ TP.HCM</h3>
+            <p class="cv-subtitle">CÔNG NGHỆ THÔNG TIN</p>
+            <p class="cv-date">2022 - 2026</p>
+          </div>
+          <div class="cv-item">
+            <h3>TRUNG TÂM ĐÀO TẠO CNTT</h3>
+            <p class="cv-subtitle">FULL STACK DEVELOPER</p>
+            <p class="cv-date">2022 - 2026</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="cv-right">
+      <!-- About Me Section -->
+      <div class="cv-section-right">
+        <h2 class="cv-section-title-right">
+          <span class="cv-icon"></span>
+          GIỚI THIỆU VỀ TÔI
+        </h2>
+        <p class="cv-description">
+          Tôi là Lê Doãn Đạt, một lập trình viên có kinh nghiệm, tận tâm, 
+          và sáng tạo trong việc giải quyết các vấn đề phức tạp. Sự đam mê 
+          của tôi là tạo ra giải pháp công nghệ độc đáo và hiệu quả cho 
+          khách hàng của mình. Tôi chuyên nghiệp, linh hoạt, và luôn lắng 
+          nghe để đảm bảo rằng mọi dự án được giải quyết một cách công bằng 
+          và chính xác.
+        </p>
+      </div>
+
+      <!-- Experience Section -->
+      <div class="cv-section-right">
+        <h2 class="cv-section-title-right">
+          <span class="cv-icon"></span>
+          KINH NGHIỆM LÀM VIỆC
+        </h2>
+        
+        <div class="cv-experience">
+          <div class="cv-exp-item">
+            <div class="cv-exp-header">
+              <div>
+                <h3>CÔNG TY TNHH ALPHA TECH</h3>
+                <p class="cv-position">Full Stack Developer</p>
+              </div>
+              <p class="cv-date-right">2023 - Nay</p>
+            </div>
+            <p class="cv-exp-desc">
+              Phát triển và tư vấn cho các doanh nghiệp về các giải pháp 
+              công nghệ, tham gia giải quyết tranh chấp và lập các hợp đồng 
+              kinh doanh. Xây dựng các ứng dụng web với Java Spring Boot và 
+              React.
+            </p>
+          </div>
+
+          <div class="cv-exp-item">
+            <div class="cv-exp-header">
+              <div>
+                <h3>CÔNG TY TNHH XYZ SOLUTIONS</h3>
+                <p class="cv-position">Junior Developer</p>
+              </div>
+              <p class="cv-date-right">2022 - 2023</p>
+            </div>
+            <p class="cv-exp-desc">
+              Hỗ trợ nghiên cứu phát triển sản phẩm, chuẩn bị hồ sơ, và 
+              tham gia các cuộc họp với khách hàng để hiểu rõ vấn đề và 
+              đưa ra giải pháp phù hợp. Làm việc với JavaScript và Node.js.
+            </p>
+          </div>
+
+          <div class="cv-exp-item">
+            <div class="cv-exp-header">
+              <div>
+                <h3>FREELANCE DEVELOPER</h3>
+                <p class="cv-position">Web Developer</p>
+              </div>
+              <p class="cv-date-right">2021 - 2022</p>
+            </div>
+            <p class="cv-exp-desc">
+              Xử lý thủ tục hành chính, lập các văn bản pháp lý cơ bản và 
+              hỗ trợ trong quá trình xây dựng hợp đồng kinh doanh. Phát 
+              triển website cho các doanh nghiệp nhỏ.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Section -->
+      <div class="cv-section-right">
+        <h2 class="cv-section-title-right">
+          <span class="cv-icon"></span>
+          KỸ NĂNG
+        </h2>
+        
+        <div class="cv-skills">
+          <div class="skill-group">
+            <h4>Backend Development</h4>
+            <div class="skill-bars">
+              <div class="skill-item">
+                <span>Java & Spring Boot</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%;"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>Node.js & Express</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h4>Frontend Development</h4>
+            <div class="skill-bars">
+              <div class="skill-item">
+                <span>JavaScript & TypeScript</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 88%;"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>React & Vue.js</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 82%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h4>Database & Tools</h4>
+            <div class="skill-bars">
+              <div class="skill-item">
+                <span>MySQL & PostgreSQL</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%;"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span>Git & Docker</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cv-cta">
+        <h3>Khám Phá Các Bài Viết Của Tôi</h3>
+        <p>Tham gia cùng tôi trong hành trình học tập và chia sẻ kiến thức lập trình!</p>
+        <a href="/posts" class="btn-primary">Xem Tất Cả Bài Viết →</a>
+      </div>
+    </div>
+  </div>
+
+  {{ else }}
+  
+  <!-- Regular Post Layout -->
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    <div class="post-meta">
+      <span> {{ .Date.Format "02/01/2006" }}</span>
+      <span> {{ .ReadingTime }} phút đọc</span>
+      {{ with .Params.tags }}
+      {{ range . }}
+      <span class="post-tag">{{ . }}</span>
+      {{ end }}
+      {{ end }}
+    </div>
+  </header>
+
+  {{ if .Params.image }}
+  <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="post-image" style="width:100%; border-radius:1rem; margin-bottom:2rem;">
+  {{ end }}
+
+  <div class="post-body">
+    {{ .Content }}
+  </div>
+
+  <nav class="post-nav">
+    {{ with .PrevInSection }}
+    <a href="{{ .Permalink }}" class="read-more">← {{ .Title }}</a>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a href="{{ .Permalink }}" class="read-more">{{ .Title }} →</a>
+    {{ end }}
+  </nav>
+
+  {{ end }}
+</article>
+
+{{ end }}

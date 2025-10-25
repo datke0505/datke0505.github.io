@@ -1,0 +1,92 @@
+<section class="hero-section">
+  <div class="hero-container">
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-icon"></span>
+        <span class="badge-text">Chào mừng bạn đến với</span>
+      </div>
+      
+      <h1 class="hero-title">
+        <span class="hero-title-main">{{ .Site.Title }}</span>
+        <span class="hero-title-sub">Học Lập Trình Mỗi Ngày</span>
+      </h1>
+      
+      <p class="hero-description">
+        Khám phá kiến thức về <strong>Java</strong>, <strong>JavaScript</strong>, 
+         và nhiều công nghệ web hiện đại. 
+        Cùng nhau xây dựng kỹ năng lập trình vững chắc! 
+      </p>
+
+      <!-- Hero Buttons -->
+      <div class="hero-actions">
+        <a href="/posts" class="hero-btn hero-btn-primary">
+          <span> Khám phá bài viết</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="/about" class="hero-btn hero-btn-secondary">
+          <span> Về tôi</span>
+        </a>
+      </div>
+
+      <!-- Hero Tags -->
+      <div class="hero-tags">
+        <span class="hero-tags-label">Chủ đề phổ biến:</span>
+        <a href="/tags/java" class="hero-tag"> Java</a>
+        <a href="/tags/javascript" class="hero-tag"> JavaScript</a>
+      </div>
+    </div>
+
+    <!-- Hero Image/Illustration -->
+    <div class="hero-visual">
+      <div class="hero-image-container">
+        <!-- Animated Code Window -->
+        <div class="code-window">
+          <div class="code-window-header">
+            <span class="code-dot code-dot-red"></span>
+            <span class="code-dot code-dot-yellow"></span>
+            <span class="code-dot code-dot-green"></span>
+          </div>
+          <div class="code-window-body">
+            <pre class="code-snippet"><code><span class="code-keyword">public class</span> <span class="code-class">Blog</span> {
+  <span class="code-keyword">public static void</span> <span class="code-method">main</span>(<span class="code-type">String</span>[] args) {
+    <span class="code-type">System</span>.out.<span class="code-method">println</span>(<span class="code-string">"Welcome!"</span>);
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Floating Icons -->
+        <div class="floating-icon floating-icon-1"></div>
+        <div class="floating-icon floating-icon-2"></div>
+        <div class="floating-icon floating-icon-3"></div>
+        <div class="floating-icon floating-icon-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Box -->
+  <div class="hero-search">
+    <div class="search-box-hero">
+      <svg class="search-icon-hero" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input 
+        type="text" 
+        id="hero-search-input" 
+        class="search-input-hero" 
+        placeholder=" Tìm kiếm bài viết về Java, JavaScript, React...">
+    </div>
+  </div>
+
+  <!-- Scroll Down Indicator -->
+  <div class="scroll-indicator">
+    <span class="scroll-text">Cuộn xuống</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>

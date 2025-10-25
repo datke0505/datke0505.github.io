@@ -1,0 +1,19 @@
+<div class="search-box mt-4">
+  <input type="text" id="searchInput" class="search-input" placeholder="🔍 Tìm kiếm bài viết...">
+</div>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const postsContainer = document.getElementById('postsContainer');
+  const posts = postsContainer ? postsContainer.querySelectorAll('.post-card') : [];
+
+  if (searchInput && posts.length) {
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      posts.forEach(post => {
+        const text = post.textContent.toLowerCase();
+        post.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    });
+  }
+</script>

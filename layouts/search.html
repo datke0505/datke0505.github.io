@@ -1,0 +1,67 @@
+{{ define "main" }}
+
+<section class="hero text-center">
+  <div class="container">
+    <h1 class="mb-2">Tìm kiếm 🔍</h1>
+    <p class="text-secondary">Nhập từ khóa để tìm bài viết bạn quan tâm</p>
+  </div>
+</section>
+
+<div class="container">
+  <!-- Search Box -->
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      class="search-input"
+      placeholder="Nhập từ khóa..."
+      oninput="filterPosts()"
+    >
+    <span class="search-icon">🔍</span>
+  </div>
+
+  <!-- Kết quả tìm kiếm -->
+  <div id="searchResults" class="posts-grid mt-4">
+    {{ range where .Site.RegularPages "Type" "posts" }}
+    <article class="post-card fade-in search-item">
+      {{ if .Params.image }}
+      <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="post-image">
+      {{ else }}
+      <div class="post-image"></div>
+      {{ end }}
+      
+      <div class="post-content">
+        <div class="post-meta">
+          <span>📅 {{ .Date.Format "02/01/2006" }}</span>
+        </div>
+        {{ with .Params.tags }}
+        <span class="post-tag">{{ index . 0 }}</span>
+        {{ end }}
+        <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <p class="post-excerpt">
+          {{ if .Description }}
+            {{ .Description }}
+          {{ else }}
+            {{ .Summary | truncate 150 }}
+          {{ end }}
+        </p>
+        <a href="{{ .Permalink }}" class="read-more">Đọc thêm →</a>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</div>
+
+<script>
+  // Simple client-side search (no JSON index)
+  function filterPosts() {
+    const query = document.getElementById("searchInput").value.toLowerCase();
+    const posts = document.querySelectorAll(".search-item");
+    posts.forEach(post => {
+      const text = post.textContent.toLowerCase();
+      post.style.display = text.includes(query) ? "block" : "none";
+    });
+  }
+</script>
+
+{{ end }}

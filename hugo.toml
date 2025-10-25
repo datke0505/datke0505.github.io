@@ -1,0 +1,187 @@
+baseURL = "https://datke0505.github.io/"
+title = "Blog Học Lập Trình Java & JavaScript"
+languageCode = "vi"
+defaultContentLanguage = "vi"
+
+# Enable features
+enableRobotsTXT = true
+enableGitInfo = false
+enableEmoji = true
+
+# Pagination
+paginate = 10
+paginatePath = "page"
+
+# URLs
+canonifyURLs = true
+relativeURLs = false
+
+# Markup settings
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokai"
+    tabWidth = 4
+
+# Params
+[params]
+  title = "Blog Học Lập Trình"
+  description = "Chia sẻ kiến thức Java & JavaScript - Từ cơ bản đến nâng cao. Học lập trình mỗi ngày cùng Lê Doãn Đạt."
+  author = "Lê Doãn Đạt"
+  authorEmail = "ledoandat@gmail.com"
+  
+  # Social links
+  github = "https://github.com/datke0505"
+  facebook = "https://www.facebook.com/dat.ke.547/"
+  
+  # SEO
+  keywords = ["java", "javascript", "lập trình", "web development", "coding", "blog", "học lập trình", "programming"]
+  
+  # Features
+  showReadingTime = true
+  showShareButtons = true
+  showTags = true
+  showBreadCrumbs = true
+  showPostNavLinks = true
+  
+  # Date format
+  dateFormat = "02/01/2006"
+
+# Menu
+[menu]
+  [[menu.main]]
+    name = "Trang chủ"
+    url = "/"
+    weight = 1
+    identifier = "home"
+
+  [[menu.main]]
+    name = "Bài viết"
+    url = "/posts/"
+    weight = 2
+    identifier = "posts"
+
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+    identifier = "tags"
+
+  [[menu.main]]
+    name = "Giới thiệu"
+    url = "/about/"
+    weight = 4
+    identifier = "about"
+
+  [[menu.main]]
+    name = "Tìm kiếm"
+    url = "/search/"
+    weight = 5
+    identifier = "search"
+
+# Taxonomies
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# Output formats
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+
+# RSS
+[rss]
+  limit = 20
+
+# Privacy
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = false
+    anonymizeIP = true
+    respectDoNotTrack = true
+  [privacy.instagram]
+    disable = false
+    simple = true
+  [privacy.twitter]
+    disable = false
+    enableDNT = true
+    simple = true
+  [privacy.vimeo]
+    disable = false
+    enableDNT = true
+    simple = true
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = true
+
+# Build settings
+[build]
+  writeStats = false
+  noJSConfigInAssets = false
+
+# Minify
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      keepCSS2 = true
+      precision = 0
+    [minify.tdewolff.html]
+      keepComments = false
+      keepConditionalComments = true
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepEndTags = true
+      keepQuotes = false
+      keepWhitespace = false
+    [minify.tdewolff.js]
+      keepVarNames = false
+      precision = 0
+    [minify.tdewolff.json]
+      precision = 0
+    [minify.tdewolff.svg]
+      precision = 0
+    [minify.tdewolff.xml]
+      keepWhitespace = false
+
+# Related content
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = false
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
+# Permalinks
+[permalinks]
+  posts = "/posts/:year/:month/:slug/"
+  
+# Image processing
+[imaging]
+  resampleFilter = "lanczos"
+  quality = 85
+  anchor = "smart"

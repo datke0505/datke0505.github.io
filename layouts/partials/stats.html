@@ -1,0 +1,139 @@
+<section class="stats-section-wrapper">
+  <div class="container">
+    <div class="stats-header">
+      <h2 class="stats-title">📊 Thống Kê Blog</h2>
+      <p class="stats-subtitle">Những con số ấn tượng từ cộng đồng</p>
+    </div>
+
+    <div class="stats-grid">
+      <!-- Stat Item 1 - Posts -->
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <div class="stat-icon stat-icon-posts">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number" data-target="{{ len (where .Site.RegularPages "Type" "posts") }}">0</h3>
+          <p class="stat-label">Bài viết</p>
+          <p class="stat-description">Kiến thức lập trình</p>
+        </div>
+        <div class="stat-badge">
+          <span class="badge-trend">📈 +5 tháng này</span>
+        </div>
+      </div>
+
+      <!-- Stat Item 2 - Views -->
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <div class="stat-icon stat-icon-views">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number" data-target="50000">0</h3>
+          <p class="stat-label">Lượt truy cập</p>
+          <p class="stat-description">Người đọc hàng tháng</p>
+        </div>
+        <div class="stat-badge">
+          <span class="badge-trend">🔥 Đang tăng</span>
+        </div>
+      </div>
+
+      <!-- Stat Item 3 - Comments -->
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <div class="stat-icon stat-icon-comments">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number" data-target="500">0</h3>
+          <p class="stat-label">Bình luận</p>
+          <p class="stat-description">Tương tác cộng đồng</p>
+        </div>
+        <div class="stat-badge">
+          <span class="badge-trend">💬 Tích cực</span>
+        </div>
+      </div>
+
+      <!-- Stat Item 4 - Tags -->
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <div class="stat-icon stat-icon-tags">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+              <line x1="7" y1="7" x2="7.01" y2="7"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number" data-target="{{ len .Site.Taxonomies.tags }}">0</h3>
+          <p class="stat-label">Chủ đề</p>
+          <p class="stat-description">Đa dạng nội dung</p>
+        </div>
+        <div class="stat-badge">
+          <span class="badge-trend">🏷️ Đa dạng</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Info -->
+    <div class="stats-footer">
+      <p class="stats-footer-text">
+         Được cập nhật liên tục · 
+        <a href="/posts" class="stats-footer-link">Khám phá thêm →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Counter Animation Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const counters = document.querySelectorAll('.stat-number');
+  const speed = 200; // Animation speed
+
+  const animateCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const increment = target / speed;
+    let count = 0;
+
+    const updateCount = () => {
+      count += increment;
+      if (count < target) {
+        counter.textContent = Math.ceil(count).toLocaleString() + '+';
+        setTimeout(updateCount, 10);
+      } else {
+        counter.textContent = target.toLocaleString() + '+';
+      }
+    };
+
+    updateCount();
+  };
+
+  // Intersection Observer for animation on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        animateCounter(counter);
+        observer.unobserve(counter);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => observer.observe(counter));
+});
+</script>

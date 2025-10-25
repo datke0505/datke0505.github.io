@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-3">Tất cả Tags</h1>
+    <p class="text-center" style="color: var(--text-secondary); margin-bottom: 3rem;">
+        Khám phá bài viết theo chủ đề
+    </p>
+
+    <div class="tags-cloud" style="justify-content: center; max-width: 900px; margin: 0 auto;">
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        <a href="{{ "tags/" | relURL }}{{ $name | urlize }}" class="tag-item" style="font-size: {{ add 0.9 (mul (len $taxonomy.Pages) 0.02) }}rem;">
+            {{ $name }} <span style="opacity: 0.7;">({{ len $taxonomy.Pages }})</span>
+        </a>
+        {{ end }}
+    </div>
+</div>
+
+{{ end }}

@@ -1,0 +1,31 @@
+<header id="header">
+  <nav>
+    <div class="logo-section">
+      <div class="logo-avatar">
+        <div class="avatar-container">
+          <img src="/images/avatar.jpg" 
+               alt="Lê Doãn Đạt" 
+               class="avatar-img">
+          <div class="avatar-ring"></div>
+        </div>
+      </div>
+      <div class="logo-info">
+        <a href="{{ .Site.BaseURL }}" class="logo">
+          {{ .Site.Title }}
+        </a>
+        <p class="logo-subtitle">
+          <span class="subtitle-icon"></span>
+          <span class="subtitle-text">Trang của</span>
+          <span class="subtitle-name">Lê Doãn Đạt</span>
+          <span class="subtitle-badge"></span>
+        </p>
+      </div>
+    </div>
+    
+    <ul class="nav-menu">
+      {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>

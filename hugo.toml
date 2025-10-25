@@ -3,16 +3,15 @@ title = "Blog Học Lập Trình Java & JavaScript"
 languageCode = "vi"
 defaultContentLanguage = "vi"
 
-# Enable features
 enableRobotsTXT = true
 enableGitInfo = false
 enableEmoji = true
 
-# Pagination
-paginate = 10
-paginatePath = "page"
+# Pagination (cú pháp mới)
+[pagination]
+  pagerSize = 10
+  path = "page"
 
-# URLs
 canonifyURLs = true
 relativeURLs = false
 
@@ -37,22 +36,18 @@ relativeURLs = false
   description = "Chia sẻ kiến thức Java & JavaScript - Từ cơ bản đến nâng cao. Học lập trình mỗi ngày cùng Lê Doãn Đạt."
   author = "Lê Doãn Đạt"
   authorEmail = "ledoandat@gmail.com"
-  
-  # Social links
+
   github = "https://github.com/datke0505"
   facebook = "https://www.facebook.com/dat.ke.547/"
-  
-  # SEO
+
   keywords = ["java", "javascript", "lập trình", "web development", "coding", "blog", "học lập trình", "programming"]
-  
-  # Features
+
   showReadingTime = true
   showShareButtons = true
   showTags = true
   showBreadCrumbs = true
   showPostNavLinks = true
-  
-  # Date format
+
   dateFormat = "02/01/2006"
 
 # Menu
@@ -92,9 +87,9 @@ relativeURLs = false
   category = "categories"
   tag = "tags"
 
-# Output formats
+# Output formats (ĐÃ SỬA: bỏ JSON để tránh lỗi build)
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
   page = ["HTML"]
   section = ["HTML", "RSS"]
 
@@ -113,7 +108,7 @@ relativeURLs = false
   [privacy.instagram]
     disable = false
     simple = true
-  [privacy.twitter]
+  [privacy.x]
     disable = false
     enableDNT = true
     simple = true
@@ -139,6 +134,7 @@ relativeURLs = false
   disableSVG = false
   disableXML = false
   minifyOutput = true
+
   [minify.tdewolff]
     [minify.tdewolff.css]
       keepCSS2 = true
@@ -179,7 +175,7 @@ relativeURLs = false
 # Permalinks
 [permalinks]
   posts = "/posts/:year/:month/:slug/"
-  
+
 # Image processing
 [imaging]
   resampleFilter = "lanczos"
